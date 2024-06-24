@@ -111,11 +111,15 @@ export class LinkedList {
 
   //return the index of the node containing value, or null if not found.
   find(value) {
+    //["key", "value"]
     let current = this.headNode;
     let index = 0;
     //traverse through the list
     while (current) {
-      if (current.value === value) return index; //return index if found
+      //we check is the value is in the list
+      //OR
+      //in the case we have as values, [key, value] pairs (hash map), we check if the key is equal to the key we searching
+      if (current.value === value || current.value[0] === value) return index; //return index if found
       current = current.nextNode;
       index++;
     }
@@ -172,5 +176,17 @@ export class LinkedList {
     if (!prevNode || !prevNode.nextNode) return null;
 
     prevNode.nextNode = prevNode.nextNode.nextNode;
+  }
+
+  //get an array with all the values of the list
+  toArray() {
+    const valuesArray = [];
+
+    let current = this.headNode;
+    while (current) {
+      valuesArray.push(current.value);
+      current = current.nextNode;
+    }
+    return valuesArray;
   }
 }
