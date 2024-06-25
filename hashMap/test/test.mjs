@@ -1,6 +1,4 @@
-import { hashFunction } from "../hashFunction.mjs";
 import { HashMap } from "../hashMap.mjs";
-import { LinkedList } from "../../linkedLists/linkedList.mjs";
 
 const test = new HashMap();
 
